@@ -51,6 +51,16 @@ FlowRouter.route('/signin', {
   }
 });
 
+FlowRouter.route('/signout', {
+  action: function(){
+    Meter.logout(function(err){
+      if(!err){
+        FlowRouter.go('/signin');
+      }
+    })
+  }
+});
+
 FlowRouter.route('/checkout', {
   action: function(){
     FlowLayout.render('layout',{
