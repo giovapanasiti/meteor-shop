@@ -2,12 +2,19 @@
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a href="/admin" class="navbar-brand">Quiet earth</a>
+        <a href="/home" class="navbar-brand">Quiet earth</a>
       </div>
 
       <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+        </ul>
         {{#if currentUser}}
           <div class="navbar-right plain">
+            <img src="{{currentUser.profile.avatar}}" alt="Avatar" class="img img-circle" width="20px">
             <a href="/signout" class="btn btn-danger navbar-btn"><i class="fa fa-lock"></i>Sign Out {{currentUser.profile.firstname}}</a>
           </div>
         {{else}}
@@ -16,6 +23,10 @@
             <a href="/register" class="btn btn-primary navbar-btn">Register</a>
           </div>
         {{/if}}
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-nav">
+
       </div>
     </div>
   </nav>
