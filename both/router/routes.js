@@ -1,4 +1,4 @@
-FlowRouter.route('/', {
+FlowRouter.route(['/', '/home'], {
   action: function(){
     FlowLayout.render('layout',{
       sidebar:'sidebar',
@@ -20,7 +20,7 @@ FlowRouter.route('/category/:categoryName', {
   triggersExit: function(){
     console.log("Exit", params);
     // check that there is no unsaved data on exit
-  }
+  },
   action: function(){
     FlowLayout.render('layout',{
       sidebar:'sidebar',
@@ -46,6 +46,16 @@ FlowRouter.route('/signin', {
     FlowLayout.render('layout',{
       sidebar:'sidebar',
       main: 'signin',
+      cart: 'cart'
+    });
+  }
+});
+
+FlowRouter.route('/checkout', {
+  action: function(){
+    FlowLayout.render('layout',{
+      sidebar:'sidebar',
+      main: 'checkout',
       cart: 'cart'
     });
   }
