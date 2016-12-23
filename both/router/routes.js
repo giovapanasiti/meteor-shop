@@ -51,6 +51,24 @@ FlowRouter.route('/signin', {
   }
 });
 
+FlowRouter.route('/admin', {
+  action: function(){
+    if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+      FlowLayout.render('layout',{
+        sidebar:'',
+        main: 'admin',
+        cart: ''
+      });
+    } else {
+      FlowLayout.render('layout',{
+        sidebar:'',
+        main: 'unauthorized',
+        cart: ''
+      });
+    }
+  }
+});
+
 FlowRouter.route('/profile', {
   action: function(){
     FlowLayout.render('layout',{

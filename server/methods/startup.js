@@ -12,5 +12,12 @@ Meteor.startup(function(){
 
     return user;
     // if you dont return the user you get an error
-  })
-})
+  });
+
+  var users = Meteor.users.find().fetch();
+  _.each(users, function(userData){
+    if (userData.emails[0].address === 'giovanni@gmail.com') {
+      Roles.addUsersToRoles(userData, ['admin']);
+    }
+  });
+});

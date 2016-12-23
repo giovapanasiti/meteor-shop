@@ -9,7 +9,7 @@ Template.profile.events({
           }
           setTimeout(function(){
             Meteor.users.update(userId, {$set:imageurl})
-          })
+          }, 2000)
         }
       })
     })
