@@ -53,9 +53,11 @@ FlowRouter.route('/signin', {
 
 FlowRouter.route('/signout', {
   action: function(){
-    Meter.logout(function(err){
+    Meteor.logout(function(err){
       if(!err){
         FlowRouter.go('/signin');
+      } else {
+        console.log(err);
       }
     })
   }
