@@ -1,10 +1,11 @@
 <template name="sidebar">
   <ul class="list-unstyled side-nav">
+    {{#each categories}}
+
     <li class="cursive huge">
-      <a href="/">Home</a>
+      <a href="/category/{{name}}">{{name}}</a>
     </li>
-    <li class="cursive huge">
-      <a href="/category/example">Example</a>
-    </li>
+
+    {{/each}}
   </ul>
 </template>

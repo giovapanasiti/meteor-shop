@@ -1,4 +1,7 @@
 FlowRouter.route(['/', '/home'], {
+  subscriptions: function(){
+    Meteor.subscribe('category');
+  },
   action: function(){
     FlowLayout.render('layout',{
       sidebar:'sidebar',
@@ -9,15 +12,18 @@ FlowRouter.route(['/', '/home'], {
 });
 
 FlowRouter.route('/category/:categoryName', {
-  subscription:function(){
+  subscriptions: function(){
+    Meteor.subscribe('category');
+  },
+  subscription:function(params){
     console.log("SUBSCRIBE", params);
     // make sure subscriptions exist
   },
-  triggersEnter: function(){
+  triggersEnter: function(params){
     console.log("Enter", params);
     // check that user is logged in
   },
-  triggersExit: function(){
+  triggersExit: function(params){
     console.log("Exit", params);
     // check that there is no unsaved data on exit
   },
