@@ -1,6 +1,7 @@
 <template name="admin">
   {{>categoryAdmin}}
   <div class="col-sm-6">
+    <form id="productForm">
     <h2 class="heading">
       Product Admin
     </h2>
@@ -15,7 +16,7 @@
       <!-- <input id="category" type="text" class="form-control input-sm"> -->
       <select name="category" id="category" class="form-control">
         {{#each categories}}
-          <option value="{{name}}">{{name}}</option>
+          <option value="{{_id}}">{{name}}</option>
         {{/each}}
       </select>
     </div>
@@ -40,7 +41,7 @@
       <div class="col-sm-4">
         <label class="control-label"></label>
         <div class="controls">
-          <button class="btn btn-info btn-md">
+          <button class="btn btn-info btn-md addProduct">
             <i class="fa fa-database"></i>
             Add Product
           </button>
@@ -48,6 +49,7 @@
       </div>
       <div class="col-sm-4"></div>
     </div>
+  </form>
   </div>
 
   <div class="col-md-6">
@@ -61,12 +63,14 @@
         </tr>
       </thead>
       <tbody>
+        {{#each products}}
         <tr>
-          <td>Apple Crisp</td>
-          <td>$12.99</td>
-          <td>Fruity</td>
-          <td><i class="fa fa-trash alert-danger"></i></td>
+          <td>{{name}}</td>
+          <td>${{price}}</td>
+          <td>{{category.name}}</td>
+          <td><a href="#" class="removeProduct"><i class="fa fa-trash alert-danger removeProduct"></i></a></td>
         </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>

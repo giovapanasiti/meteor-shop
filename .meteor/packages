@@ -29,3 +29,7 @@ alanning:roles
 fortawesome:fontawesome
 cfs:standard-packages
 cfs:gridfs
+
+matb33:collection-hooks
+dburles:collection-helpers
+# packages to add collections relationships

@@ -1,6 +1,7 @@
 FlowRouter.route(['/', '/home'], {
   subscriptions: function(){
-    Meteor.subscribe('category');
+    this.register('categoriesList', Meteor.subscribe('category'));
+    this.register('productsList', Meteor.subscribe('products'));
   },
   action: function(){
     FlowLayout.render('layout',{
@@ -15,7 +16,9 @@ FlowRouter.route('/category/:categoryName', {
   subscriptions:function(params){
     console.log("SUBSCRIBE", params);
     // make sure subscriptions exist
-    Meteor.subscribe('category');
+    // Meteor.subscribe('category');
+    this.register('categoriesList', Meteor.subscribe('category'));
+    this.register('productsList', Meteor.subscribe('products'));
   },
   triggersEnter: function(params){
     console.log("Enter", params);
@@ -57,7 +60,9 @@ FlowRouter.route('/signin', {
 
 FlowRouter.route('/admin', {
   subscriptions: function(){
-    Meteor.subscribe('category');
+    // Meteor.subscribe('category');
+    this.register('categoriesList', Meteor.subscribe('category'));
+    this.register('productsList', Meteor.subscribe('products'));
   },
   action: function(){
     if (Roles.userIsInRole(Meteor.userId(), 'admin')) {

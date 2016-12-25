@@ -1,3 +1,3 @@
-Meteor.publish('product', function(){
-  return Product.find({});
+Meteor.publish('products', function(){
+  return Product.find();
 })
