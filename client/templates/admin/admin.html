@@ -1,4 +1,5 @@
 <template name="admin">
+  {{>categoryAdmin}}
   <div class="col-sm-6">
     <h2 class="heading">
       Product Admin
@@ -11,7 +12,12 @@
 
     <div class="form-group">
       <label class="control-label">Category</label>
-      <input id="category" type="text" class="form-control input-sm">
+      <!-- <input id="category" type="text" class="form-control input-sm"> -->
+      <select name="category" id="category" class="form-control">
+        {{#each categories}}
+          <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select>
     </div>
 
     <div class="form-group">
