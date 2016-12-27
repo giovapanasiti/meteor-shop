@@ -18,7 +18,9 @@ FlowRouter.route('/category/:categoryName', {
     // make sure subscriptions exist
     // Meteor.subscribe('category');
     this.register('categoriesList', Meteor.subscribe('category'));
-    this.register('productsList', Meteor.subscribe('products'));
+    // this.register('productsList', Meteor.subscribe('products'));
+    // this above will publish all the products no matter what category we are in
+    this.register('catproducts', Meteor.subscribe('categoryProducts', params.categoryName));
   },
   triggersEnter: function(params){
     console.log("Enter", params);

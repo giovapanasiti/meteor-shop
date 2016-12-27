@@ -1,6 +1,6 @@
-Template.category.onCreated(function(){
-  this.subscribe('products');
-});
+// Template.category.onCreated(function(){
+//   this.subscribe('categoryProducts');
+// });
 
 Template.category.helpers({
   categoryName: function(){
