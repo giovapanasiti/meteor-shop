@@ -2,6 +2,6 @@ Product = new Mongo.Collection('product');
 
 Product.helpers({
   category: function(){
-    Category.findOne(this.categoryId);
+    return Category.findOne(this.categoryId);
   }
 });
