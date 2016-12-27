@@ -1,6 +1,13 @@
+Template.category.onCreated(function(){
+  this.subscribe('products');
+});
+
 Template.category.helpers({
   categoryName: function(){
     return FlowRouter.getParam('categoryName')
+  },
+  products: function(){
+    return Product.find();
   }
 });
 // this takes the parameter from the end of the URL
