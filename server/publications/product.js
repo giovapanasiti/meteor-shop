@@ -1,3 +1,8 @@
+Meteor.startup(function(){
+  Product._ensureIndex({"categoryId":1});
+  // It should be faster to search for product after this
+});
+
 Meteor.publish('products', function(){
   return Product.find();
 });
