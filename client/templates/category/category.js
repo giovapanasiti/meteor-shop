@@ -1,6 +1,7 @@
 // Template.category.onCreated(function(){
 //   this.subscribe('categoryProducts');
 // });
+// This was used for a template subscriptions.
 
 Template.category.helpers({
   categoryName: function(){
