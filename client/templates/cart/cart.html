@@ -1,3 +1,32 @@
 <template name="cart">
-  Cart
+  {{#if currentUser}}
+  <h4>My Cart</h4>
+  <ul class="list-unstyled">
+    {{#each cartitems}}
+    <li>
+      <span class="item">
+        <span class="item-left">
+          <img src="{{img}}" alt="">
+          <span class="item-info">
+            <span>
+              <label class="badge">{{qty}}</label>
+            </span>
+            <span>{{product}}</span>
+            <br>
+            <span>{{{description}}}</span>
+            <!-- 3 brackets are for custom HTML elements -->
+          </span>
+        </span>
+        <span class="item-right">
+          <h4>{{price}}
+            <button class="btn btn-xs btn-danger pull-right delFromCart">x</button>
+          </h4>
+        </span>
+      </span>
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+    Register to see the cart
+  {{/if}}
 </template>
